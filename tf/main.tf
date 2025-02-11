@@ -1,5 +1,5 @@
 resource "aws_codepipeline" "codepipeline" {
-  name     = "tf-test-pipeline"
+  name     = "tf-pipeline-tarea-1"
   role_arn = aws_iam_role.codepipeline_role.arn
 
   artifact_store {
@@ -128,6 +128,7 @@ resource "aws_codestarconnections_connection" "github-connection" {
 resource "aws_s3_bucket" "codepipeline_bucket" {
   bucket_prefix = "codepipeline-"
   tags          = local.common_tags
+  force_destroy = true
   
 }
 
